@@ -205,7 +205,10 @@ function LeadBoard({ data: initialData, isLoggedIn, setIsLoggedIn }) {
           </button>
         </div>
         {showLoginModal && (
-          <LoginModal onClose={() => setShowLoginModal(false)} />
+          <LoginModal
+            onClose={() => setShowLoginModal(false)}
+            setIsLoggedIn={setIsLoggedIn}
+          />
         )}
       </div>
     );

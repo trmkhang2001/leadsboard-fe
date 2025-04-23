@@ -10,7 +10,6 @@ function Dashboard({ isLoggedIn, setIsLoggedIn }) {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [showConfetti, setShowConfetti] = useState(false);
   const [confettiKey, setConfettiKey] = useState(0);
-
   useEffect(() => {
     const handleResize = () =>
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
@@ -22,9 +21,9 @@ function Dashboard({ isLoggedIn, setIsLoggedIn }) {
   useEffect(() => {
     getLead()
       .then((res) => setLeadData(res.data))
-      .catch(() => {
-        toast.error("Vui lòng đăng nhập lại");
-        setTimeout(() => window.location.reload(), 2000);
+      .catch((err) => {
+        console.warn("Không lấy được lead:", err.message || err);
+        setLeadData({}); // hoặc null nếu LeadBoard tự xử lý
       });
   }, []);
 
