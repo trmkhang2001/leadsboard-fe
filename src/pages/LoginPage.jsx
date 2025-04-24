@@ -8,7 +8,7 @@ function LoginPage({ onLoginSuccess }) {
   const handleLogin = async () => {
     try {
       await login(email, password);
-      onLoginSuccess(); // gọi callback để chuyển trang
+      onLoginSuccess();
     } catch (err) {
       alert("Login failed");
     }
